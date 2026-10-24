@@ -1,402 +1,655 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Muscle Monster Gym | Haldwani's Premier Fitness Hub</title>
-  <meta name="description" content="Muscle Monster Gym - Haldwani's premier bodybuilding & fitness training center on Bareilly-Nainital Road near Motahaldu. Unleash the beast within.">
+  <title>Muscle Monster Gym | Premier Bodybuilding & Fitness Sanctuary</title>
+  <meta name="description" content="Muscle Monster Gym - Haldwani's premier athletic fitness center on Bareilly-Nainital Road near Motahaldu. Luxurious Matte Dark training facility with heavy iron and elite coaching.">
   
-  <!-- Modern Clean Typography: Plus Jakarta Sans & Playfair Display for italic accent -->
+  <!-- Stitch Obsidian Kinetic Fonts: Syne (Display) & Plus Jakarta Sans (Body) & Playfair Display (Serif Accent) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,400;1,500;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,400;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet">
   
-  <!-- Font Awesome 6 -->
+  <!-- Font Awesome 6 Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-  <!-- Tailwind CSS via CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      darkMode: 'class',
-      theme: {
-        extend: {
-          colors: {
-            brand: {
-              orange: '#FF5E14',
-              red: '#FF2A2A',
-              dark: '#0B0C0E',
-              darker: '#060709',
-              card: '#12141A',
-              border: 'rgba(255, 255, 255, 0.1)'
-            }
-          },
-          fontFamily: {
-            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
-            serif: ['"Playfair Display"', 'serif']
-          }
-        }
-      }
-    }
-  </script>
+  <!-- Stitch Linked Stylesheet -->
+  <link rel="stylesheet" href="style.css">
 
-  <style>
-    /* Hide scrollbar for smooth carousel */
-    .no-scrollbar::-webkit-scrollbar {
-      display: none;
-    }
-    .no-scrollbar {
-      -ms-overflow-style: none;
-      scrollbar-width: none;
-    }
-
-    /* Ambient Warm Spotlights (Matching Reference Image) */
-    .spotlight-glow {
-      background: radial-gradient(circle at 18% 10%, rgba(255, 170, 70, 0.18) 0%, transparent 40%),
-                  radial-gradient(circle at 75% 15%, rgba(255, 170, 70, 0.15) 0%, transparent 35%),
-                  radial-gradient(circle at 92% 12%, rgba(255, 170, 70, 0.12) 0%, transparent 30%);
-    }
-
-    /* Interactive Mouse Spotlight Overlay */
-    #cursor-spotlight {
-      pointer-events: none;
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255, 120, 40, 0.13), transparent 60%);
-      z-index: 1;
-      transition: opacity 0.4s ease;
-    }
-
-    /* Enhanced Button Glows & Smooth Elevation */
-    .btn-lift-white {
-      transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
-    }
-    .btn-lift-white:hover {
-      transform: translateY(-5px) scale(1.02);
-      box-shadow: 0 0 25px rgba(255, 255, 255, 0.65), 0 12px 30px rgba(255, 255, 255, 0.25);
-    }
-    .btn-lift-white:active {
-      transform: translateY(-1px) scale(0.99);
-    }
-
-    .btn-lift-dark {
-      transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
-    }
-    .btn-lift-dark:hover {
-      transform: translateY(-5px) scale(1.02);
-      border-color: rgba(255, 94, 20, 0.9);
-      color: #FF5E14;
-      box-shadow: 0 0 25px rgba(255, 94, 20, 0.5), 0 10px 25px rgba(255, 94, 20, 0.2);
-    }
-    .btn-lift-dark:active {
-      transform: translateY(-1px) scale(0.99);
-    }
-
-    .btn-lift-orange {
-      transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
-    }
-    .btn-lift-orange:hover {
-      transform: translateY(-5px) scale(1.02);
-      box-shadow: 0 0 30px rgba(255, 94, 20, 0.75), 0 12px 30px rgba(255, 94, 20, 0.35);
-    }
-    .btn-lift-orange:active {
-      transform: translateY(-1px) scale(0.99);
-    }
-
-    /* Card Micro Elevation */
-    .card-lift {
-      transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
-    }
-    .card-lift:hover {
-      transform: translateY(-6px);
-      border-color: rgba(255, 94, 20, 0.4);
-      box-shadow: 0 15px 35px -10px rgba(0, 0, 0, 0.6), 0 0 20px rgba(255, 94, 20, 0.15);
-    }
-
-    /* Gallery Photo Hover Lift */
-    .gallery-item {
-      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-      cursor: pointer;
-    }
-    .gallery-item:hover {
-      transform: translateY(-6px);
-      border-color: rgba(255, 255, 255, 0.35);
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.7), 0 0 20px rgba(255, 94, 20, 0.25);
-    }
-    .gallery-item:hover img {
-      transform: scale(1.08);
-    }
-
-    /* Floating Action Button Pulse Glow */
-    @keyframes floatPulse {
-      0%, 100% {
-        box-shadow: 0 0 20px rgba(255, 94, 20, 0.4), 0 10px 25px rgba(0,0,0,0.5);
-      }
-      50% {
-        box-shadow: 0 0 35px rgba(255, 94, 20, 0.8), 0 10px 30px rgba(255, 94, 20, 0.4);
-      }
-    }
-    .float-glow {
-      animation: floatPulse 3.5s infinite ease-in-out;
-    }
-  </style>
+  <!-- Stitch Linked Script -->
+  <script src="script.js" defer></script>
 </head>
 
-<body class="bg-brand-dark text-slate-100 font-sans antialiased selection:bg-brand-orange selection:text-white">
+<body>
 
-  <!-- ================= TOP HERO CONTAINER WITH REFERENCE HEADER & SPOTLIGHTS ================= -->
-  <div id="hero-container" class="relative min-h-[90vh] lg:min-h-screen bg-cover bg-center bg-no-repeat flex flex-col justify-between spotlight-glow border-b border-brand-border overflow-hidden"
-       style="background-image: linear-gradient(to bottom, rgba(11, 12, 14, 0.72) 0%, rgba(11, 12, 14, 0.55) 45%, rgba(11, 12, 14, 0.96) 100%), url('https://images.unsplash.com/photo-1540497077202-7c8a3999166f?auto=format&fit=crop&w=2000&q=85');">
-
-    <!-- Interactive Mouse Spotlight Canvas Overlay -->
-    <div id="cursor-spotlight"></div>
-
-    <!-- Top Navigation (Matching Reference Design) -->
-    <header class="w-full z-40 pt-6 px-6 sm:px-10 lg:px-14 relative">
-      <div class="max-w-7xl mx-auto flex items-center justify-between">
+  <!-- ================= SITE HEADER / NAVIGATION ================= -->
+  <header class="site-header">
+    <div class="container">
+      <div class="nav-wrapper">
         
-        <!-- Logo (Clean minimalist styling with dumbbell) -->
-        <a href="#home" class="flex items-center gap-2.5 group">
-          <div class="w-9 h-9 rounded-lg bg-gradient-to-br from-brand-orange to-red-600 flex items-center justify-center text-white shadow-md group-hover:scale-105 transition-transform">
-            <i class="fa-solid fa-dumbbell text-base -rotate-45"></i>
+        <!-- Brand Logo -->
+        <a href="#home" class="brand-logo">
+          <div class="brand-emblem">
+            <i class="fa-solid fa-dumbbell -rotate-45"></i>
           </div>
-          <div class="flex flex-col">
-            <span class="font-extrabold text-lg sm:text-xl tracking-wider uppercase text-white leading-none">
-              Muscle <span class="text-brand-orange">Monster</span>
-            </span>
-            <span class="text-[10px] tracking-[0.25em] text-slate-400 font-semibold uppercase mt-0.5">
-              Gym • Haldwani
-            </span>
+          <div class="brand-text">
+            <span class="brand-title">Muscle <span>Monster</span></span>
+            <span class="brand-subtitle">Gym • Haldwani</span>
           </div>
         </a>
 
-        <!-- Desktop Navigation with Reference '+' Prefix -->
-        <nav class="hidden md:flex items-center gap-7 lg:gap-10 text-[11px] lg:text-xs font-bold tracking-widest uppercase text-slate-300">
-          <a href="#gallery" class="hover:text-white transition-colors flex items-center gap-1 hover:-translate-y-0.5 duration-200">
-            <span class="text-slate-500 font-normal">+</span> GALLERY
-          </a>
-          <a href="#train" class="hover:text-white transition-colors flex items-center gap-1 hover:-translate-y-0.5 duration-200">
-            <span class="text-slate-500 font-normal">+</span> TRAIN
-          </a>
-          <a href="#timings" class="hover:text-white transition-colors flex items-center gap-1 hover:-translate-y-0.5 duration-200">
-            <span class="text-slate-500 font-normal">+</span> TIMINGS
-          </a>
-          <a href="#about" class="hover:text-white transition-colors flex items-center gap-1 hover:-translate-y-0.5 duration-200">
-            <span class="text-slate-500 font-normal">+</span> ABOUT
-          </a>
-          <a href="#find-us" class="hover:text-white transition-colors flex items-center gap-1 hover:-translate-y-0.5 duration-200">
-            <span class="text-slate-500 font-normal">+</span> FIND US
-          </a>
+        <!-- Desktop Navigation with Stitch '+' Prefix -->
+        <nav>
+          <ul class="nav-menu" id="nav-menu">
+            <li><a href="#gallery" class="nav-link"><span class="prefix">+</span> Gallery</a></li>
+            <li><a href="#programs" class="nav-link"><span class="prefix">+</span> Programs</a></li>
+            <li><a href="#pricing" class="nav-link"><span class="prefix">+</span> Pricing</a></li>
+            <li><a href="#schedule" class="nav-link"><span class="prefix">+</span> Schedule</a></li>
+            <li><a href="#about" class="nav-link"><span class="prefix">+</span> About</a></li>
+            <li><a href="#location" class="nav-link"><span class="prefix">+</span> Find Us</a></li>
+          </ul>
         </nav>
 
-        <!-- Right Quick Action -->
-        <div class="hidden sm:flex items-center gap-3">
-          <a href="tel:07906120653" class="btn-lift-dark px-4 py-2 rounded-full border border-white/20 bg-black/40 text-xs font-semibold text-white tracking-wide flex items-center gap-2">
-            <i class="fa-solid fa-phone text-brand-orange text-[11px]"></i>
+        <!-- Header Actions -->
+        <div class="nav-actions">
+          <a href="tel:07906120653" class="btn btn-ghost btn-sm">
+            <i class="fa-solid fa-phone" style="color: var(--color-primary);"></i>
             <span>079061 20653</span>
           </a>
-        </div>
-
-        <!-- Mobile Menu Button -->
-        <div class="flex md:hidden">
-          <button id="mobile-menu-btn" type="button" aria-label="Toggle Menu" class="p-2 rounded-lg bg-black/60 border border-white/15 text-slate-200">
-            <i id="menu-icon" class="fa-solid fa-bars text-lg"></i>
-          </button>
-        </div>
-
-      </div>
-
-      <!-- Mobile Dropdown -->
-      <div id="mobile-menu" class="hidden md:hidden mt-3 rounded-2xl bg-brand-dark/95 backdrop-blur-xl border border-white/10 p-5 space-y-3.5">
-        <a href="#gallery" class="mobile-link block text-xs font-bold uppercase tracking-wider text-slate-300 hover:text-white">+ GALLERY</a>
-        <a href="#train" class="mobile-link block text-xs font-bold uppercase tracking-wider text-slate-300 hover:text-white">+ TRAIN & PROGRAMS</a>
-        <a href="#timings" class="mobile-link block text-xs font-bold uppercase tracking-wider text-slate-300 hover:text-white">+ TIMINGS & SCHEDULE</a>
-        <a href="#about" class="mobile-link block text-xs font-bold uppercase tracking-wider text-slate-300 hover:text-white">+ ABOUT GYM</a>
-        <a href="#find-us" class="mobile-link block text-xs font-bold uppercase tracking-wider text-slate-300 hover:text-white">+ FIND US / DIRECTIONS</a>
-        <div class="pt-3 border-t border-white/10 flex flex-col gap-2">
-          <a href="#free-pass" class="mobile-link btn-lift-white w-full py-2.5 text-center bg-white text-black font-bold text-xs uppercase tracking-wider rounded-full">
-            Book 1st Class Free ↗
-          </a>
-          <a href="tel:07906120653" class="btn-lift-dark w-full py-2.5 text-center bg-black/50 border border-white/20 text-white font-semibold text-xs rounded-full flex items-center justify-center gap-2">
-            <i class="fa-solid fa-phone text-brand-orange"></i> Call: 079061 20653
+          <a href="#booking" class="btn btn-primary btn-sm">
+            <span>Free Pass</span>
+            <i class="fa-solid fa-arrow-up-right-from-square" style="font-size: 0.75rem;"></i>
           </a>
         </div>
-      </div>
-    </header>
 
-    <!-- Hero Content (Matching Reference Layout) -->
-    <div id="home" class="max-w-7xl mx-auto px-6 sm:px-10 lg:px-14 py-16 sm:py-24 w-full relative z-10">
-      <div class="max-w-2xl space-y-5">
+        <!-- Mobile Menu Toggle Button -->
+        <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Navigation Menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- ================= HERO SECTION ================= -->
+  <section class="hero-section" id="home">
+    <div class="hero-spotlight"></div>
+    
+    <div class="container">
+      <div class="hero-grid">
         
-        <!-- Main Headline with Italicized Accent Word -->
-        <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white leading-[1.08]">
-          Unleash the beast <br class="hidden sm:inline" />
-          <span class="font-serif italic font-normal text-slate-200">within.</span>
-        </h1>
+        <!-- Hero Left Column: Monolithic Headline & Telemetry -->
+        <div class="hero-content">
+          
+          <div class="section-tag">
+            <span class="label-caps label-caps-accent">● ATHLETIC SANCTUARY</span>
+            <span class="label-caps" style="color: var(--border-hairline);">|</span>
+            <span class="label-caps">HALDWANI, UTTARAKHAND</span>
+          </div>
 
-        <!-- Subheading Paragraphs (Matching Reference Style) -->
-        <div class="space-y-1 text-slate-300 text-sm sm:text-base font-normal max-w-lg leading-relaxed">
-          <p>Bodybuilding, heavy iron, and fitness training in Haldwani.</p>
-          <p class="font-medium text-white">Not a gym. A community.</p>
+          <h1 class="hero-headline">
+            Unleash the beast <br>
+            <span class="serif-within">within.</span>
+          </h1>
+
+          <p class="hero-subtext">
+            High-intensity bodybuilding, biomechanical machinery, and precision coaching on <strong>Bareilly - Nainital Road, Haldwani</strong>. Not just a gym. An iron powerhouse.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#booking" class="btn btn-primary btn-lg">
+              <span>Book 1st Class Free</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </a>
+            <a href="#location" class="btn btn-ghost btn-lg">
+              <span>Directions</span>
+              <i class="fa-solid fa-location-arrow"></i>
+            </a>
+          </div>
+
+          <!-- Quick Telemetry Counters -->
+          <div class="hero-telemetry">
+            <div class="telemetry-item">
+              <span class="telemetry-num primary counter-animate" data-target="500" data-suffix="+" data-duration="2400">0</span>
+              <span class="telemetry-label">Active Athletes</span>
+            </div>
+            <div class="telemetry-item">
+              <span class="telemetry-num counter-animate" data-target="100" data-suffix="%" data-duration="2000">0</span>
+              <span class="telemetry-label">Coaching Support</span>
+            </div>
+            <div class="telemetry-item">
+              <span class="telemetry-num counter-animate" data-target="50" data-suffix="+" data-duration="1800">0</span>
+              <span class="telemetry-label">Heavy Machines</span>
+            </div>
+          </div>
+
         </div>
 
-        <!-- Buttons with Glow & Hover Lift Effect -->
-        <div class="flex flex-wrap items-center gap-3.5 pt-3">
-          <a href="#free-pass" class="magnetic-btn btn-lift-white px-7 py-3.5 rounded-full bg-white text-black font-bold text-xs sm:text-sm tracking-wide flex items-center gap-2.5">
-            <span>Book your 1st class free</span>
-            <span class="text-base leading-none">↗</span>
-          </a>
+        <!-- Hero Right Column: Structured Booking Card -->
+        <div class="booking-card" id="booking">
+          <div class="booking-header">
+            <span class="booking-badge">1-Day Free Access</span>
+            <h3 class="title-h3" style="color: var(--text-high); text-transform: uppercase;">
+              Claim Your Free Pass
+            </h3>
+            <p style="color: var(--text-med); font-size: 0.85rem; margin-top: 0.35rem;">
+              Experience our equipment and atmosphere with zero financial commitment.
+            </p>
+          </div>
 
-          <a href="#find-us" class="magnetic-btn btn-lift-dark px-7 py-3.5 rounded-full bg-black/40 border border-white/25 text-white font-semibold text-xs sm:text-sm tracking-wide flex items-center gap-2.5">
-            <span>Contact</span>
-            <span class="text-base leading-none">↗</span>
-          </a>
+          <form class="booking-form" id="booking-form">
+            <div class="form-group">
+              <label class="form-label" for="user-name">Full Name</label>
+              <input type="text" id="user-name" class="form-input" placeholder="e.g. Alex Sharma" required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="user-phone">Mobile Number</label>
+              <input type="tel" id="user-phone" class="form-input" placeholder="e.g. 079061 20653" required>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="user-goal">Target Focus</label>
+              <select id="user-goal" class="form-select">
+                <option value="Bodybuilding & Hypertrophy">Bodybuilding & Hypertrophy</option>
+                <option value="Fat Loss & Calorie Deficit">Fat Loss & Conditioning</option>
+                <option value="1-on-1 Personal Training">1-on-1 Personal Coaching</option>
+                <option value="Strength & Powerlifting">Strength & Powerlifting</option>
+                <option value="General Athletic Stamina">General Athletic Stamina</option>
+              </select>
+            </div>
+
+            <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 0.5rem; padding: 1rem;">
+              <i class="fa-brands fa-whatsapp" style="font-size: 1.1rem;"></i>
+              <span>Claim Pass Via WhatsApp</span>
+            </button>
+          </form>
+
+          <p class="label-caps" style="text-align: center; color: var(--text-low); margin-top: 1rem;">
+            Instant verification • Direct confirmation from gym manager
+          </p>
         </div>
 
       </div>
     </div>
+  </section>
 
-    <!-- Empty spacer to balance bottom -->
-    <div class="h-6"></div>
-
-  </div>
-
-  <!-- ================= GALLERY SECTION (HORIZONTAL CAROUSEL WITH < > ARROWS & LIGHTBOX) ================= -->
-  <section id="gallery" class="py-12 bg-brand-darker border-b border-brand-border">
-    <div class="max-w-7xl mx-auto px-6 sm:px-10 lg:px-14">
+  <!-- ================= GALLERY GRID WITH HOVER LIFT-EFFECTS ================= -->
+  <section class="section-spacing" id="gallery" style="background-color: var(--bg-canvas); border-bottom: 1px solid var(--border-hairline);">
+    <div class="container">
       
-      <!-- Section Title & Carousel Arrow Controls -->
-      <div class="flex items-center justify-between mb-6">
-        <div>
-          <h2 class="text-2xl sm:text-3xl font-bold tracking-tight text-white">
-            Gallery
-          </h2>
-          <p class="text-[11px] text-slate-400 mt-0.5">Click any photo for full screen view</p>
+      <div class="section-header">
+        <div class="section-tag">
+          <span class="label-caps label-caps-accent">● FACILITY ARCHITECTURE</span>
+          <span class="label-caps">VISUAL TOUR</span>
         </div>
-
-        <!-- Circular Left/Right Buttons (< >) with Glow Hover -->
-        <div class="flex items-center gap-2.5">
-          <button id="gallery-prev-btn" aria-label="Previous Slide" class="btn-lift-dark w-10 h-10 rounded-full bg-white/5 border border-white/15 text-slate-300 hover:text-white flex items-center justify-center text-sm">
-            <i class="fa-solid fa-chevron-left text-xs"></i>
-          </button>
-          <button id="gallery-next-btn" aria-label="Next Slide" class="btn-lift-dark w-10 h-10 rounded-full bg-white/5 border border-white/15 text-slate-300 hover:text-white flex items-center justify-center text-sm">
-            <i class="fa-solid fa-chevron-right text-xs"></i>
-          </button>
-        </div>
+        <h2 class="title-h2">
+          Inside Muscle Monster Gym
+        </h2>
+        <p class="section-desc">
+          Engineered for serious lifters. Biomechanically calibrated plate-loaded machinery, heavy dumbbells, and atmospheric lighting.
+        </p>
       </div>
 
-      <!-- Horizontal Photo Reel (Scrollable, Interactive, Click to Zoom) -->
-      <div id="gallery-carousel" class="flex items-center gap-3.5 overflow-x-auto no-scrollbar scroll-smooth pb-3 select-none">
+      <!-- Bento Gallery Grid -->
+      <div class="gallery-grid">
         
-        <!-- Photo 1: Main Floor View -->
-        <div class="gallery-item flex-none w-64 sm:w-80 h-44 sm:h-52 rounded-xl overflow-hidden border border-white/10 relative group" data-title="Main Training Arena" data-src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1400&q=85">
-          <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=700&q=80" alt="Main Gym Floor" class="w-full h-full object-cover transition-transform duration-500">
-          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-80 group-hover:opacity-95 transition-opacity"></div>
-          <div class="absolute bottom-3 left-3 flex items-center justify-between right-3">
-            <span class="text-xs font-semibold text-white">Main Training Arena</span>
-            <span class="w-6 h-6 rounded-full bg-white/20 text-white flex items-center justify-center text-[10px] opacity-0 group-hover:opacity-100 transition-opacity">
-              <i class="fa-solid fa-expand"></i>
-            </span>
+        <!-- Tile 1: Main Floor Arena (Span 8) -->
+        <div class="gallery-card col-8 row-2" data-title="Main Iron Training Floor" data-full-img="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1600&q=85">
+          <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1000&q=80" alt="Main Gym Floor" class="gallery-img">
+          <div class="gallery-overlay">
+            <span class="label-caps label-caps-accent mb-1">MAIN TRAINING FLOOR</span>
+            <div class="gallery-meta">
+              <h3 class="gallery-title">Comprehensive Iron Floor</h3>
+              <div class="gallery-zoom-icon"><i class="fa-solid fa-expand"></i></div>
+            </div>
           </div>
         </div>
 
-        <!-- Photo 2: Heavy Dumbbell Alley -->
-        <div class="gallery-item flex-none w-64 sm:w-80 h-44 sm:h-52 rounded-xl overflow-hidden border border-white/10 relative group" data-title="Free Weights & Dumbbells" data-src="https://images.unsplash.com/photo-1584735935682-2f2b69dff9d2?auto=format&fit=crop&w=1400&q=85">
-          <img src="https://images.unsplash.com/photo-1584735935682-2f2b69dff9d2?auto=format&fit=crop&w=700&q=80" alt="Dumbbells" class="w-full h-full object-cover transition-transform duration-500">
-          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-80 group-hover:opacity-95 transition-opacity"></div>
-          <div class="absolute bottom-3 left-3 flex items-center justify-between right-3">
-            <span class="text-xs font-semibold text-white">Free Weights & Dumbbells</span>
-            <span class="w-6 h-6 rounded-full bg-white/20 text-white flex items-center justify-center text-[10px] opacity-0 group-hover:opacity-100 transition-opacity">
-              <i class="fa-solid fa-expand"></i>
-            </span>
+        <!-- Tile 2: Heavy Dumbbell Alley (Span 4) -->
+        <div class="gallery-card col-4" data-title="Dumbbell & Free Weight Alley" data-full-img="https://images.unsplash.com/photo-1584735935682-2f2b69dff9d2?auto=format&fit=crop&w=1600&q=85">
+          <img src="https://images.unsplash.com/photo-1584735935682-2f2b69dff9d2?auto=format&fit=crop&w=700&q=80" alt="Dumbbells" class="gallery-img">
+          <div class="gallery-overlay">
+            <span class="label-caps label-caps-accent mb-1">FREE WEIGHT MATRIX</span>
+            <div class="gallery-meta">
+              <h3 class="gallery-title">2.5kg - 40kg+ Pairs</h3>
+              <div class="gallery-zoom-icon"><i class="fa-solid fa-expand"></i></div>
+            </div>
           </div>
         </div>
 
-        <!-- Photo 3: Mountain View / Sunset Window Gym (Like Reference Image) -->
-        <div class="gallery-item flex-none w-64 sm:w-80 h-44 sm:h-52 rounded-xl overflow-hidden border border-white/10 relative group" data-title="Sunset & Scenic Elevation" data-src="https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=1400&q=85">
-          <img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=700&q=80" alt="Sunset Mountain View Gym" class="w-full h-full object-cover transition-transform duration-500">
-          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-80 group-hover:opacity-95 transition-opacity"></div>
-          <div class="absolute bottom-3 left-3 flex items-center justify-between right-3">
-            <span class="text-xs font-semibold text-white">Sunset & Scenic Elevation</span>
-            <span class="w-6 h-6 rounded-full bg-white/20 text-white flex items-center justify-center text-[10px] opacity-0 group-hover:opacity-100 transition-opacity">
-              <i class="fa-solid fa-expand"></i>
-            </span>
+        <!-- Tile 3: Scenic Mountain Sunset Gym (Span 4) -->
+        <div class="gallery-card col-4" data-title="Sunset & Scenic Elevation" data-full-img="https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=1600&q=85">
+          <img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=700&q=80" alt="Cardio & Sunset Window" class="gallery-img">
+          <div class="gallery-overlay">
+            <span class="label-caps label-caps-accent mb-1">SCENIC ELEVATION</span>
+            <div class="gallery-meta">
+              <h3 class="gallery-title">Natural Light & Vista</h3>
+              <div class="gallery-zoom-icon"><i class="fa-solid fa-expand"></i></div>
+            </div>
           </div>
         </div>
 
-        <!-- Photo 4: Olympic Squat & Power Racks -->
-        <div class="gallery-item flex-none w-64 sm:w-80 h-44 sm:h-52 rounded-xl overflow-hidden border border-white/10 relative group" data-title="Olympic Power Racks" data-src="https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&w=1400&q=85">
-          <img src="https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&w=700&q=80" alt="Power Racks" class="w-full h-full object-cover transition-transform duration-500">
-          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-80 group-hover:opacity-95 transition-opacity"></div>
-          <div class="absolute bottom-3 left-3 flex items-center justify-between right-3">
-            <span class="text-xs font-semibold text-white">Olympic Power Racks</span>
-            <span class="w-6 h-6 rounded-full bg-white/20 text-white flex items-center justify-center text-[10px] opacity-0 group-hover:opacity-100 transition-opacity">
-              <i class="fa-solid fa-expand"></i>
-            </span>
+        <!-- Tile 4: Olympic Squat Racks (Span 4) -->
+        <div class="gallery-card col-4" data-title="Olympic Power Racks" data-full-img="https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&w=1600&q=85">
+          <img src="https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?auto=format&fit=crop&w=700&q=80" alt="Squat Racks" class="gallery-img">
+          <div class="gallery-overlay">
+            <span class="label-caps label-caps-accent mb-1">OLYMPIC RIG</span>
+            <div class="gallery-meta">
+              <h3 class="gallery-title">Squat & Deadlift Zone</h3>
+              <div class="gallery-zoom-icon"><i class="fa-solid fa-expand"></i></div>
+            </div>
           </div>
         </div>
 
-        <!-- Photo 5: Biomechanical Pulley Machines -->
-        <div class="gallery-item flex-none w-64 sm:w-80 h-44 sm:h-52 rounded-xl overflow-hidden border border-white/10 relative group" data-title="Biomechanical Stations" data-src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?auto=format&fit=crop&w=1400&q=85">
-          <img src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?auto=format&fit=crop&w=700&q=80" alt="Cable Gear" class="w-full h-full object-cover transition-transform duration-500">
-          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-80 group-hover:opacity-95 transition-opacity"></div>
-          <div class="absolute bottom-3 left-3 flex items-center justify-between right-3">
-            <span class="text-xs font-semibold text-white">Biomechanical Stations</span>
-            <span class="w-6 h-6 rounded-full bg-white/20 text-white flex items-center justify-center text-[10px] opacity-0 group-hover:opacity-100 transition-opacity">
-              <i class="fa-solid fa-expand"></i>
-            </span>
+        <!-- Tile 5: Biomechanical Pulley Stations (Span 4) -->
+        <div class="gallery-card col-4" data-title="Biomechanical Cable Stations" data-full-img="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?auto=format&fit=crop&w=1600&q=85">
+          <img src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?auto=format&fit=crop&w=700&q=80" alt="Cable Gear" class="gallery-img">
+          <div class="gallery-overlay">
+            <span class="label-caps label-caps-accent mb-1">CABLE ISOKINETICS</span>
+            <div class="gallery-meta">
+              <h3 class="gallery-title">Precision Pulley Gear</h3>
+              <div class="gallery-zoom-icon"><i class="fa-solid fa-expand"></i></div>
+            </div>
           </div>
         </div>
 
-        <!-- Photo 6: 1-on-1 Athlete Coaching -->
-        <div class="gallery-item flex-none w-64 sm:w-80 h-44 sm:h-52 rounded-xl overflow-hidden border border-white/10 relative group" data-title="Personal Training" data-src="https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=1400&q=85">
-          <img src="https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=700&q=80" alt="Personal Training" class="w-full h-full object-cover transition-transform duration-500">
-          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-80 group-hover:opacity-95 transition-opacity"></div>
-          <div class="absolute bottom-3 left-3 flex items-center justify-between right-3">
-            <span class="text-xs font-semibold text-white">Personal Training</span>
-            <span class="w-6 h-6 rounded-full bg-white/20 text-white flex items-center justify-center text-[10px] opacity-0 group-hover:opacity-100 transition-opacity">
-              <i class="fa-solid fa-expand"></i>
-            </span>
+        <!-- Tile 6: 1-on-1 Athlete Mentorship (Span 4) -->
+        <div class="gallery-card col-4" data-title="1-on-1 Coach Mentorship" data-full-img="https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=1600&q=85">
+          <img src="https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=700&q=80" alt="Personal Coaching" class="gallery-img">
+          <div class="gallery-overlay">
+            <span class="label-caps label-caps-accent mb-1">COACHING SESSIONS</span>
+            <div class="gallery-meta">
+              <h3 class="gallery-title">Form & Technique Checks</h3>
+              <div class="gallery-zoom-icon"><i class="fa-solid fa-expand"></i></div>
+            </div>
           </div>
         </div>
 
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= TRAINING DISCIPLINES ================= -->
+  <section class="section-spacing" id="programs" style="border-bottom: 1px solid var(--border-hairline);">
+    <div class="container">
+      
+      <div class="section-header">
+        <div class="section-tag">
+          <span class="label-caps label-caps-accent">● TRAINING METHODOLOGIES</span>
+          <span class="label-caps">STRUCTURED DISCIPLINES</span>
+        </div>
+        <h2 class="title-h2">
+          Engineered For Physical Progression
+        </h2>
+        <p class="section-desc">
+          Four distinct disciplines designed to help you build dense muscle, optimize metabolic expenditure, or elevate functional stamina.
+        </p>
+      </div>
+
+      <div class="programs-grid">
+        
+        <!-- Card 1 -->
+        <div class="program-card">
+          <div>
+            <div class="program-icon-box">
+              <i class="fa-solid fa-dumbbell"></i>
+            </div>
+            <h3 class="program-title">Weight Training</h3>
+            <p class="program-desc">
+              Extensive free-weight territory featuring heavy Olympic barbells, dumbbell arrays, and plate-loaded leverage machinery designed for muscle hypertrophy.
+            </p>
+          </div>
+          <span class="label-caps label-caps-accent" style="margin-top: 1.5rem; display: block;">Hypertrophy & Density</span>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="program-card">
+          <div>
+            <div class="program-icon-box">
+              <i class="fa-solid fa-user-ninja"></i>
+            </div>
+            <h3 class="program-title">Personal Training</h3>
+            <p class="program-desc">
+              Dedicated 1-on-1 coaching calibrated around your personal schedule, biomechanics, and rate of recovery with relentless form correction.
+            </p>
+          </div>
+          <span class="label-caps label-caps-accent" style="margin-top: 1.5rem; display: block;">1-on-1 Mentorship</span>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="program-card">
+          <div>
+            <div class="program-icon-box">
+              <i class="fa-solid fa-fire"></i>
+            </div>
+            <h3 class="program-title">Fat Loss & Recomp</h3>
+            <p class="program-desc">
+              Scientific metabolic circuits and calorie-management guidance to strip stubborn body fat while defending and revealing lean muscle mass.
+            </p>
+          </div>
+          <span class="label-caps label-caps-accent" style="margin-top: 1.5rem; display: block;">Metabolic Density</span>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="program-card">
+          <div>
+            <div class="program-icon-box">
+              <i class="fa-solid fa-heart-pulse"></i>
+            </div>
+            <h3 class="program-title">Cardio & HIIT</h3>
+            <p class="program-desc">
+              Commercial motorized treadmills, spin trainers, and cross-trainers paired with functional turf intervals to reinforce stamina and cardiac capacity.
+            </p>
+          </div>
+          <span class="label-caps label-caps-accent" style="margin-top: 1.5rem; display: block;">Cardiac Endurance</span>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= PRICING CARDS COMPONENT ================= -->
+  <section class="section-spacing" id="pricing" style="background-color: var(--bg-canvas); border-bottom: 1px solid var(--border-hairline);">
+    <div class="container">
+      
+      <div class="section-header text-center">
+        <div class="section-tag">
+          <span class="label-caps label-caps-accent">● MEMBERSHIP TIERS</span>
+          <span class="label-caps">TRANSPARENT VALUE</span>
+        </div>
+        <h2 class="title-h2">
+          Structured Membership Plans
+        </h2>
+        <p class="section-desc" style="margin-left: auto; margin-right: auto;">
+          Zero hidden registration costs. High-performance access tailored for committed athletes and fitness enthusiasts.
+        </p>
+      </div>
+
+      <div class="pricing-grid">
+        
+        <!-- Tier 1: Monthly Foundation -->
+        <div class="pricing-card">
+          <div>
+            <div class="pricing-header">
+              <h3 class="pricing-plan-name">1-Month Foundation</h3>
+              <div class="pricing-price">
+                <span class="price-currency">₹</span>
+                <span class="price-amount">1,499</span>
+                <span class="price-period">/ Month</span>
+              </div>
+              <p class="label-caps" style="color: var(--text-low); margin-top: 0.5rem;">Billed Monthly • Flexible</p>
+            </div>
+
+            <ul class="pricing-features">
+              <li class="feature-item">
+                <i class="fa-solid fa-check"></i>
+                <span>Full access to all heavy iron machines</span>
+              </li>
+              <li class="feature-item">
+                <i class="fa-solid fa-check"></i>
+                <span>Free weights, dumbbells & power racks</span>
+              </li>
+              <li class="feature-item">
+                <i class="fa-solid fa-check"></i>
+                <span>Cardio zone & treadmill floor</span>
+              </li>
+              <li class="feature-item">
+                <i class="fa-solid fa-check"></i>
+                <span>General posture & workout guidance</span>
+              </li>
+              <li class="feature-item">
+                <i class="fa-solid fa-check"></i>
+                <span>Free bike & vehicle parking</span>
+              </li>
+            </ul>
+          </div>
+
+          <a href="https://wa.me/917906120653?text=Hi%20Muscle%20Monster%20Gym!%20I%20am%20interested%20in%20the%201-Month%20Foundation%20Plan." target="_blank" class="btn btn-ghost" style="width: 100%;">
+            <span>Choose Plan</span>
+            <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+
+        <!-- Tier 2: 3-Month Beast Transformation (Featured) -->
+        <div class="pricing-card featured">
+          <span class="popular-tag">MOST POPULAR</span>
+
+          <div>
+            <div class="pricing-header">
+              <h3 class="pricing-plan-name" style="color: var(--color-primary);">3-Month Transformation</h3>
+              <div class="pricing-price">
+                <span class="price-currency">₹</span>
+                <span class="price-amount">3,499</span>
+                <span class="price-period">/ Quarter</span>
+              </div>
+              <p class="label-caps" style="color: var(--color-primary); margin-top: 0.5rem;">Effective ₹1,166 / Month • Save 22%</p>
+            </div>
+
+            <ul class="pricing-features">
+              <li class="feature-item">
+                <i class="fa-solid fa-circle-check"></i>
+                <span><strong>All 1-Month Foundation benefits</strong></span>
+              </li>
+              <li class="feature-item">
+                <i class="fa-solid fa-circle-check"></i>
+                <span>Customized muscle gain / fat loss diet plan</span>
+              </li>
+              <li class="feature-item">
+                <i class="fa-solid fa-circle-check"></i>
+                <span>Weekly body composition & progress metrics</span>
+              </li>
+              <li class="feature-item">
+                <i class="fa-solid fa-circle-check"></i>
+                <span>Personal locker privileges</span>
+              </li>
+              <li class="feature-item">
+                <i class="fa-solid fa-circle-check"></i>
+                <span>1 Free workout guest pass per month</span>
+              </li>
+            </ul>
+          </div>
+
+          <a href="https://wa.me/917906120653?text=Hi%20Muscle%20Monster%20Gym!%20I%20want%20to%20enroll%20in%20the%203-Month%20Transformation%20Plan." target="_blank" class="btn btn-primary" style="width: 100%;">
+            <span>Claim Transformation</span>
+            <i class="fa-solid fa-bolt"></i>
+          </a>
+        </div>
+
+        <!-- Tier 3: 12-Month VIP Black Card -->
+        <div class="pricing-card vip">
+          <span class="vip-tag">VIP BLACK CARD</span>
+
+          <div>
+            <div class="pricing-header">
+              <h3 class="pricing-plan-name" style="color: var(--color-secondary);">12-Month Annual VIP</h3>
+              <div class="pricing-price">
+                <span class="price-currency">₹</span>
+                <span class="price-amount">9,999</span>
+                <span class="price-period">/ Year</span>
+              </div>
+              <p class="label-caps label-caps-gold" style="margin-top: 0.5rem;">Effective ₹833 / Month • Best Annual Value</p>
+            </div>
+
+            <ul class="pricing-features">
+              <li class="feature-item">
+                <i class="fa-solid fa-award"></i>
+                <span><strong>Full 365 days VIP facility priority</strong></span>
+              </li>
+              <li class="feature-item">
+                <i class="fa-solid fa-award"></i>
+                <span>1-on-1 head trainer biometric assessment</span>
+              </li>
+              <li class="feature-item">
+                <i class="fa-solid fa-award"></i>
+                <span>Quarterly macro & diet roadmap revisions</span>
+              </li>
+              <li class="feature-item">
+                <i class="fa-solid fa-award"></i>
+                <span>Reserved personal equipment slots during peak</span>
+              </li>
+              <li class="feature-item">
+                <i class="fa-solid fa-award"></i>
+                <span>Complimentary gym shaker & workout kit</span>
+              </li>
+            </ul>
+          </div>
+
+          <a href="https://wa.me/917906120653?text=Hi%20Muscle%20Monster%20Gym!%20I%20am%20interested%20in%20the%2012-Month%20VIP%20Black%20Card." target="_blank" class="btn btn-vip" style="width: 100%;">
+            <span>Enroll as VIP</span>
+            <i class="fa-solid fa-crown"></i>
+          </a>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= SCHEDULE TABLES COMPONENT ================= -->
+  <section class="section-spacing" id="schedule" style="border-bottom: 1px solid var(--border-hairline);">
+    <div class="container">
+      
+      <div class="section-header">
+        <div class="section-tag">
+          <span class="label-caps label-caps-accent">● FACILITY TIMETABLE</span>
+          <span class="label-caps">6 DAYS SCHEDULE</span>
+        </div>
+        <h2 class="title-h2">
+          Daily Training Batches
+        </h2>
+        <p class="section-desc">
+          Structured operational slots accommodating early-morning lifters, student athletes, and post-work evening warriors.
+        </p>
+      </div>
+
+      <div class="schedule-container">
+        <table class="schedule-table">
+          <thead>
+            <tr>
+              <th>Batch / Slot</th>
+              <th>Operating Hours</th>
+              <th>Intensity Level</th>
+              <th>Facility Status</th>
+              <th>Coaching On-Floor</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <strong style="color: var(--text-high); display: block; font-size: 1rem;">Morning Power Shift</strong>
+                <span class="label-caps" style="color: var(--text-low);">Early risers & heavy strength sessions</span>
+              </td>
+              <td>
+                <span class="time-badge">Open - 10:00 AM</span>
+              </td>
+              <td>High Volume Hypertrophy</td>
+              <td>
+                <span class="status-pill open">
+                  <i class="fa-solid fa-circle" style="font-size: 6px;"></i> Active
+                </span>
+              </td>
+              <td style="color: var(--text-high);">Certified Head Coach</td>
+            </tr>
+
+            <tr>
+              <td>
+                <strong style="color: var(--text-med); display: block; font-size: 1rem;">Midday Sanitization Break</strong>
+                <span class="label-caps" style="color: var(--text-muted);">Deep clean & maintenance cycle</span>
+              </td>
+              <td>
+                <span class="time-badge" style="color: var(--text-low);">10:00 AM - 4:00 PM</span>
+              </td>
+              <td>Facility Reset</td>
+              <td>
+                <span class="status-pill break">
+                  <i class="fa-solid fa-pause" style="font-size: 8px;"></i> Closed
+                </span>
+              </td>
+              <td style="color: var(--text-low);">Equipment Maintenance Staff</td>
+            </tr>
+
+            <tr>
+              <td>
+                <strong style="color: var(--text-high); display: block; font-size: 1rem;">Evening Beast Shift</strong>
+                <span class="label-caps label-caps-accent">Peak energy brotherhood session</span>
+              </td>
+              <td>
+                <span class="time-badge" style="color: var(--color-primary);">4:00 PM Onwards</span>
+              </td>
+              <td>Maximum Beast Intensity</td>
+              <td>
+                <span class="status-pill peak">
+                  <i class="fa-solid fa-fire" style="font-size: 8px;"></i> Peak Hours
+                </span>
+              </td>
+              <td style="color: var(--text-high);">Full Coaching Team</td>
+            </tr>
+
+            <tr>
+              <td>
+                <strong style="color: var(--text-high); display: block; font-size: 1rem;">Sunday Recovery & Open Floor</strong>
+                <span class="label-caps" style="color: var(--text-low);">Mobility, cardio & light conditioning</span>
+              </td>
+              <td>
+                <span class="time-badge">6:00 AM - 12:00 PM</span>
+              </td>
+              <td>Active Recovery</td>
+              <td>
+                <span class="status-pill open">
+                  <i class="fa-solid fa-circle" style="font-size: 6px;"></i> Half-Day
+                </span>
+              </td>
+              <td style="color: var(--text-high);">Duty Trainer On-Floor</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
 
     </div>
   </section>
 
   <!-- ================= ABOUT SECTION ================= -->
-  <section id="about" class="py-20 bg-brand-dark border-b border-brand-border">
-    <div class="max-w-7xl mx-auto px-6 sm:px-10 lg:px-14">
-      <div class="grid lg:grid-cols-12 gap-12 items-center">
+  <section class="section-spacing" id="about" style="background-color: var(--bg-canvas); border-bottom: 1px solid var(--border-hairline);">
+    <div class="container">
+      <div class="hero-grid" style="align-items: center;">
         
-        <div class="lg:col-span-6 space-y-4">
-          <span class="text-[11px] font-bold uppercase tracking-widest text-brand-orange">+ ABOUT MUSCLE MONSTER</span>
-          <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight leading-tight">
-            Haldwani's Premier Destination For Real Transformation
+        <div class="hero-content">
+          <div class="section-tag">
+            <span class="label-caps label-caps-accent">● THE SANCTUARY</span>
+            <span class="label-caps">OUR PHILOSOPHY</span>
+          </div>
+
+          <h2 class="title-h2">
+            Haldwani's Premier Destination For Genuine Transformations
           </h2>
-          <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
-            Conveniently located at Chauraha on the Bareilly - Nainital Road near Motahaldu, <strong class="text-white">Muscle Monster Gym</strong> brings a high-end iron atmosphere where lifters of all levels build strength, discipline, and confidence.
-          </p>
-          <p class="text-slate-400 text-xs sm:text-sm leading-relaxed">
-            From modern biomechanical machinery and Olympic lifting bars to certified coaches who correct form and build custom nutritional roadmaps, we provide an environment designed to elevate you daily.
+
+          <p class="hero-subtext">
+            Situated along the Bareilly - Nainital Road near Motahaldu, <strong>Muscle Monster Gym</strong> provides fitness enthusiasts with an elite atmosphere where excuses are left at the door.
           </p>
 
-          <div class="grid grid-cols-2 gap-4 pt-4 border-t border-white/10">
-            <div>
-              <p class="text-3xl font-extrabold text-white font-sans counter-value" data-target="500">0</p>
-              <p class="text-xs text-slate-400 uppercase tracking-wider mt-0.5">Active Athletes</p>
+          <p class="hero-subtext" style="font-size: 0.92rem; color: var(--text-med);">
+            We believe sustainable physical strength comes from heavy iron, biomechanical discipline, and supportive coaches who know your name and push your limits.
+          </p>
+
+          <div class="hero-telemetry" style="grid-template-columns: repeat(2, 1fr); padding-top: 1.5rem;">
+            <div class="telemetry-item">
+              <span class="telemetry-num counter-animate" data-target="500" data-suffix="+" data-duration="2200" style="color: var(--color-primary);">0</span>
+              <span class="telemetry-label">Active Athletes Enrolled</span>
             </div>
-            <div>
-              <p class="text-3xl font-extrabold text-brand-orange font-sans counter-value" data-target="100">0</p>
-              <p class="text-xs text-slate-400 uppercase tracking-wider mt-0.5">Coaching Support (%)</p>
+            <div class="telemetry-item">
+              <span class="telemetry-num counter-animate" data-target="100" data-suffix="%" data-duration="2000" style="color: var(--color-secondary);">0</span>
+              <span class="telemetry-label">Dedicated Coach Mentorship</span>
             </div>
           </div>
         </div>
 
-        <div class="lg:col-span-6">
-          <div class="card-lift rounded-2xl overflow-hidden border border-white/10 shadow-2xl relative">
-            <img src="https://images.unsplash.com/photo-1526506118085-60ce8714f8c5?auto=format&fit=crop&w=900&q=80" alt="Gym Coaching Facility" class="w-full h-80 sm:h-96 object-cover">
+        <div>
+          <div style="border-radius: var(--radius-md); overflow: hidden; border: 1px solid var(--border-hairline); box-shadow: 0 20px 45px -15px rgba(0, 0, 0, 0.8);">
+            <img src="https://images.unsplash.com/photo-1526506118085-60ce8714f8c5?auto=format&fit=crop&w=1000&q=80" alt="Athletic Coaching Floor" style="width: 100%; height: 420px; object-fit: cover;">
           </div>
         </div>
 
@@ -404,189 +657,82 @@
     </div>
   </section>
 
-  <!-- ================= TRAINING & SERVICES SECTION ================= -->
-  <section id="train" class="py-20 bg-brand-darker border-b border-brand-border">
-    <div class="max-w-7xl mx-auto px-6 sm:px-10 lg:px-14">
+  <!-- ================= LOCATION & DIRECTIONS ================= -->
+  <section class="section-spacing" id="location" style="border-bottom: 1px solid var(--border-hairline);">
+    <div class="container">
       
-      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-12">
-        <div>
-          <span class="text-[11px] font-bold uppercase tracking-widest text-brand-orange">+ TRAINING DISCIPLINES</span>
-          <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight mt-1">
-            Engineered For Progression
-          </h2>
+      <div class="section-header">
+        <div class="section-tag">
+          <span class="label-caps label-caps-accent">● HEADQUARTERS</span>
+          <span class="label-caps">LOCATION & CONTACT</span>
         </div>
-        <p class="text-xs sm:text-sm text-slate-400 max-w-sm">
-          Four focused disciplines to help you build raw strength, drop stubborn body fat, or master athletic endurance.
+        <h2 class="title-h2">
+          Find Muscle Monster Gym
+        </h2>
+        <p class="section-desc">
+          Easily accessible along the Bareilly - Nainital Highway. Generous vehicle parking and public transit connections.
         </p>
       </div>
 
-      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+      <div class="location-grid">
         
-        <div class="card-lift p-6 rounded-2xl bg-brand-card border border-white/10 flex flex-col justify-between">
-          <div>
-            <div class="w-10 h-10 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-brand-orange mb-5">
-              <i class="fa-solid fa-dumbbell"></i>
+        <!-- Left Address Info Card -->
+        <div class="location-info-card">
+          <div class="info-item">
+            <div class="info-icon">
+              <i class="fa-solid fa-location-dot"></i>
             </div>
-            <h3 class="text-lg font-bold text-white mb-2">Weight Training</h3>
-            <p class="text-xs text-slate-400 leading-relaxed">
-              Full commercial iron floor featuring heavy Olympic barbells, dumbbell arrays, and precision plate-loaded machinery.
-            </p>
-          </div>
-          <span class="text-xs font-semibold text-slate-300 mt-6 inline-block">Hypertrophy & Power</span>
-        </div>
-
-        <div class="card-lift p-6 rounded-2xl bg-brand-card border border-white/10 flex flex-col justify-between">
-          <div>
-            <div class="w-10 h-10 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-brand-orange mb-5">
-              <i class="fa-solid fa-user-ninja"></i>
-            </div>
-            <h3 class="text-lg font-bold text-white mb-2">Personal Training</h3>
-            <p class="text-xs text-slate-400 leading-relaxed">
-              1-on-1 dedicated coaching designed to fit around your work schedule with continuous form checks and diet protocols.
-            </p>
-          </div>
-          <span class="text-xs font-semibold text-slate-300 mt-6 inline-block">1-on-1 Mentorship</span>
-        </div>
-
-        <div class="card-lift p-6 rounded-2xl bg-brand-card border border-white/10 flex flex-col justify-between">
-          <div>
-            <div class="w-10 h-10 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-brand-orange mb-5">
-              <i class="fa-solid fa-fire"></i>
-            </div>
-            <h3 class="text-lg font-bold text-white mb-2">Fat Loss & Muscle Gain</h3>
-            <p class="text-xs text-slate-400 leading-relaxed">
-              Metabolic resistance circuits and structured calorie management protocols to accelerate body recomposition.
-            </p>
-          </div>
-          <span class="text-xs font-semibold text-slate-300 mt-6 inline-block">Lean Physique</span>
-        </div>
-
-        <div class="card-lift p-6 rounded-2xl bg-brand-card border border-white/10 flex flex-col justify-between">
-          <div>
-            <div class="w-10 h-10 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-brand-orange mb-5">
-              <i class="fa-solid fa-heart-pulse"></i>
-            </div>
-            <h3 class="text-lg font-bold text-white mb-2">Cardio & HIIT</h3>
-            <p class="text-xs text-slate-400 leading-relaxed">
-              Commercial motorized treadmills, spin bikes, and cross-trainers to elevate lung capacity, endurance, and heart health.
-            </p>
-          </div>
-          <span class="text-xs font-semibold text-slate-300 mt-6 inline-block">Stamina & Agility</span>
-        </div>
-
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ================= TIMINGS & SCHEDULE SECTION ================= -->
-  <section id="timings" class="py-20 bg-brand-dark border-b border-brand-border">
-    <div class="max-w-7xl mx-auto px-6 sm:px-10 lg:px-14">
-      
-      <div class="max-w-2xl mx-auto text-center space-y-2 mb-12">
-        <span class="text-[11px] font-bold uppercase tracking-widest text-brand-orange">+ FACILITY SCHEDULE</span>
-        <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Daily Workout Shifts</h2>
-        <p class="text-xs sm:text-sm text-slate-400">Convenient morning and evening training hours 6 days a week.</p>
-      </div>
-
-      <div class="max-w-3xl mx-auto grid sm:grid-cols-3 gap-4">
-        
-        <!-- Morning -->
-        <div class="card-lift p-5 rounded-2xl bg-brand-card border border-white/10 text-center space-y-2">
-          <div class="w-9 h-9 rounded-full bg-white/5 mx-auto flex items-center justify-center text-amber-400">
-            <i class="fa-solid fa-sun text-xs"></i>
-          </div>
-          <h4 class="font-bold text-white text-sm">Morning Shift</h4>
-          <p class="text-amber-400 text-sm font-semibold">Open - 10:00 AM</p>
-          <p class="text-[11px] text-slate-500">Fresh morning session</p>
-        </div>
-
-        <!-- Break -->
-        <div class="p-5 rounded-2xl bg-brand-card/50 border border-white/5 text-center space-y-2 opacity-70">
-          <div class="w-9 h-9 rounded-full bg-white/5 mx-auto flex items-center justify-center text-slate-400">
-            <i class="fa-solid fa-pause text-xs"></i>
-          </div>
-          <h4 class="font-bold text-slate-300 text-sm">Midday Break</h4>
-          <p class="text-slate-400 text-sm font-semibold">10:00 AM - 4:00 PM</p>
-          <p class="text-[11px] text-slate-500">Sanitization & maintenance</p>
-        </div>
-
-        <!-- Evening -->
-        <div class="card-lift p-5 rounded-2xl bg-brand-card border border-brand-orange/30 text-center space-y-2">
-          <div class="w-9 h-9 rounded-full bg-brand-orange/10 mx-auto flex items-center justify-center text-brand-orange">
-            <i class="fa-solid fa-moon text-xs"></i>
-          </div>
-          <h4 class="font-bold text-white text-sm">Evening Shift</h4>
-          <p class="text-brand-orange text-sm font-semibold">4:00 PM Onwards</p>
-          <p class="text-[11px] text-slate-500">Peak power lifting session</p>
-        </div>
-
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ================= LOCATION & CONTACT SECTION (FIND US) ================= -->
-  <section id="find-us" class="py-20 bg-brand-darker border-b border-brand-border">
-    <div class="max-w-7xl mx-auto px-6 sm:px-10 lg:px-14">
-      
-      <div class="grid lg:grid-cols-12 gap-10 items-stretch">
-        
-        <!-- Left Address Info -->
-        <div class="lg:col-span-5 space-y-6 flex flex-col justify-between">
-          <div>
-            <span class="text-[11px] font-bold uppercase tracking-widest text-brand-orange">+ LOCATION & DIRECTIONS</span>
-            <h2 class="text-3xl sm:text-4xl font-extrabold text-white mt-1 mb-4">
-              Visit Muscle Monster Gym
-            </h2>
-            <p class="text-slate-400 text-xs sm:text-sm leading-relaxed mb-6">
-              Prime location along the Bareilly - Nainital Highway zone with free vehicle parking and easy public transit access.
-            </p>
-
-            <div class="space-y-4 text-xs sm:text-sm">
-              <div class="flex items-start gap-3">
-                <i class="fa-solid fa-location-dot text-brand-orange mt-1"></i>
-                <div class="text-slate-300">
-                  <strong class="text-white block">Gym Address</strong>
-                  Chauraha, Bareilly - Nainital Rd, near Motahaldu, Haldwani, Jaipur Bisa, Uttarakhand 263139
-                  <span class="block text-slate-500 text-xs mt-0.5">Landmark: Near Motahaldu Chauraha</span>
-                </div>
-              </div>
-
-              <div class="flex items-center gap-3">
-                <i class="fa-solid fa-phone text-brand-orange"></i>
-                <div>
-                  <strong class="text-white block">Call Us Directly</strong>
-                  <a href="tel:07906120653" class="text-slate-300 hover:text-white font-semibold">079061 20653</a>
-                </div>
-              </div>
-
-              <div class="flex items-center gap-3">
-                <i class="fa-brands fa-whatsapp text-emerald-400 text-base"></i>
-                <div>
-                  <strong class="text-white block">WhatsApp Inquiries</strong>
-                  <a href="https://wa.me/917906120653" target="_blank" rel="noopener noreferrer" class="text-slate-300 hover:text-emerald-400">
-                    +91 79061 20653 (Chat Support)
-                  </a>
-                </div>
-              </div>
+            <div>
+              <span class="label-caps label-caps-accent">OFFICIAL ADDRESS</span>
+              <h4 style="color: var(--text-high); font-size: 1.05rem; margin-top: 0.25rem;">Muscle Monster Gym</h4>
+              <p style="color: var(--text-med); font-size: 0.9rem; margin-top: 0.25rem; line-height: 1.5;">
+                Chauraha, Bareilly - Nainital Rd, near Motahaldu, Haldwani, Jaipur Bisa, Uttarakhand 263139
+              </p>
+              <p class="label-caps" style="color: var(--color-secondary); margin-top: 0.5rem;">
+                Landmark: Near Motahaldu Chauraha on Highway
+              </p>
             </div>
           </div>
 
-          <div class="pt-4">
-            <a href="https://maps.google.com/?q=Chauraha,+Bareilly+-+Nainital+Rd,+near+Motahaldu,+Haldwani,+Jaipur+Bisa,+Uttarakhand+263139" target="_blank" rel="noopener noreferrer" class="btn-lift-white inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-white text-black font-bold text-xs uppercase tracking-wider">
-              <span>Open In Google Maps</span>
-              <span>↗</span>
+          <div class="info-item">
+            <div class="info-icon">
+              <i class="fa-solid fa-phone"></i>
+            </div>
+            <div>
+              <span class="label-caps label-caps-accent">TELEPHONE INQUIRIES</span>
+              <p style="color: var(--text-high); font-family: var(--font-heading); font-size: 1.25rem; font-weight: 700; margin-top: 0.25rem;">
+                <a href="tel:07906120653" style="color: var(--text-high);">079061 20653</a>
+              </p>
+              <p style="color: var(--text-low); font-size: 0.8rem;">Direct line to gym manager</p>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <div class="info-icon" style="background: rgba(16, 185, 129, 0.1); border-color: rgba(16, 185, 129, 0.3); color: #10B981;">
+              <i class="fa-brands fa-whatsapp"></i>
+            </div>
+            <div>
+              <span class="label-caps" style="color: #10B981;">WHATSAPP CONCIERGE</span>
+              <p style="color: var(--text-high); font-size: 0.95rem; font-weight: 600; margin-top: 0.25rem;">
+                <a href="https://wa.me/917906120653" target="_blank" style="color: var(--text-high);">+91 79061 20653</a>
+              </p>
+              <p style="color: var(--text-low); font-size: 0.8rem;">Instant chat for passes & memberships</p>
+            </div>
+          </div>
+
+          <div style="padding-top: 0.5rem;">
+            <a href="https://maps.google.com/?q=Chauraha,+Bareilly+-+Nainital+Rd,+near+Motahaldu,+Haldwani,+Jaipur+Bisa,+Uttarakhand+263139" target="_blank" class="btn btn-primary" style="width: 100%;">
+              <span>Open in Google Maps App</span>
+              <i class="fa-solid fa-arrow-up-right-from-square"></i>
             </a>
           </div>
         </div>
 
-        <!-- Right Embedded Map -->
-        <div class="lg:col-span-7 card-lift rounded-2xl overflow-hidden border border-white/10 min-h-[300px]">
+        <!-- Right Embedded Google Map -->
+        <div class="map-frame-wrapper">
           <iframe 
             title="Muscle Monster Gym Google Map"
             src="https://maps.google.com/maps?q=Chauraha,%20Bareilly%20-%20Nainital%20Rd,%20near%20Motahaldu,%20Haldwani,%20Jaipur%20Bisa,%20Uttarakhand%20263139&t=&z=15&ie=UTF8&iwloc=&output=embed" 
-            class="w-full h-full border-0 filter contrast-125 brightness-90 grayscale-[25%]"
             allowfullscreen="" 
             loading="lazy">
           </iframe>
@@ -597,249 +743,83 @@
     </div>
   </section>
 
-  <!-- ================= FREE TRIAL PASS FORM ================= -->
-  <section id="free-pass" class="py-20 bg-brand-dark border-b border-brand-border">
-    <div class="max-w-2xl mx-auto px-6">
+  <!-- ================= SITE FOOTER ================= -->
+  <footer class="site-footer">
+    <div class="container">
       
-      <div class="card-lift bg-brand-card border border-white/10 rounded-3xl p-8 sm:p-10 shadow-2xl">
-        <div class="text-center space-y-2 mb-8">
-          <span class="text-[11px] font-bold uppercase tracking-widest text-brand-orange">+ FREE WORKOUT PASS</span>
-          <h2 class="text-2xl sm:text-3xl font-extrabold text-white">
-            Book Your 1st Class Free
-          </h2>
-          <p class="text-xs sm:text-sm text-slate-400">
-            Come in, inspect the facility, meet coaches, and complete a full training session.
+      <div class="footer-grid">
+        <div class="footer-col">
+          <div class="brand-logo" style="margin-bottom: 1.25rem;">
+            <div class="brand-emblem" style="width: 36px; height: 36px; font-size: 1rem;">
+              <i class="fa-solid fa-dumbbell -rotate-45"></i>
+            </div>
+            <span class="brand-title" style="font-size: 1.15rem;">Muscle <span>Monster</span></span>
+          </div>
+          <p style="color: var(--text-med); font-size: 0.88rem; line-height: 1.6; max-width: 340px;">
+            "Unleash the beast within." Haldwani's premier bodybuilding and high-performance training sanctuary on Bareilly - Nainital Road.
           </p>
         </div>
 
-        <form id="lead-form" onsubmit="handleFormSubmit(event)" class="space-y-4">
-          <div>
-            <label class="block text-xs uppercase font-semibold text-slate-400 mb-1" for="name">Your Name</label>
-            <input type="text" id="name" required placeholder="e.g. Rahul Sharma" class="w-full px-4 py-3 bg-brand-dark border border-white/10 rounded-xl text-white text-sm placeholder-slate-600 focus:outline-none focus:border-brand-orange focus:ring-1 focus:ring-brand-orange transition-all">
-          </div>
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <ul class="footer-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#gallery">Facility Gallery</a></li>
+            <li><a href="#programs">Training Disciplines</a></li>
+            <li><a href="#pricing">Membership Pricing</a></li>
+            <li><a href="#schedule">Batch Schedule</a></li>
+          </ul>
+        </div>
 
-          <div>
-            <label class="block text-xs uppercase font-semibold text-slate-400 mb-1" for="phone">Phone Number</label>
-            <input type="tel" id="phone" required placeholder="e.g. 079061 20653" class="w-full px-4 py-3 bg-brand-dark border border-white/10 rounded-xl text-white text-sm placeholder-slate-600 focus:outline-none focus:border-brand-orange focus:ring-1 focus:ring-brand-orange transition-all">
-          </div>
+        <div class="footer-col">
+          <h4>Shifts</h4>
+          <ul class="footer-links">
+            <li><span style="color: var(--text-high); font-weight: 600;">Morning Shift:</span> Open - 10:00 AM</li>
+            <li><span style="color: var(--text-low);">Midday Break:</span> 10:00 AM - 4:00 PM</li>
+            <li><span style="color: var(--color-primary); font-weight: 600;">Evening Shift:</span> 4:00 PM Onwards</li>
+            <li><span style="color: var(--text-high); font-weight: 600;">Sunday:</span> 6:00 AM - 12:00 PM</li>
+          </ul>
+        </div>
 
-          <div>
-            <label class="block text-xs uppercase font-semibold text-slate-400 mb-1" for="goal">Primary Focus</label>
-            <select id="goal" class="w-full px-4 py-3 bg-brand-dark border border-white/10 rounded-xl text-white text-sm focus:outline-none focus:border-brand-orange focus:ring-1 focus:ring-brand-orange transition-all">
-              <option value="Bodybuilding & Muscle Building">Bodybuilding & Hypertrophy</option>
-              <option value="Fat Loss & Conditioning">Fat Loss & Conditioning</option>
-              <option value="1-on-1 Personal Coaching">1-on-1 Personal Coaching</option>
-              <option value="General Strength & Cardio">General Strength & Cardio</option>
-            </select>
-          </div>
-
-          <button type="submit" class="btn-lift-white w-full py-4 bg-white text-black font-bold text-xs sm:text-sm uppercase tracking-wider rounded-full flex items-center justify-center gap-2 shadow-xl mt-3">
-            <span>Claim Free Pass Via WhatsApp</span>
-            <span>↗</span>
-          </button>
-        </form>
+        <div class="footer-col">
+          <h4>Contact & Location</h4>
+          <p style="color: var(--text-med); line-height: 1.6;">
+            Chauraha, Bareilly - Nainital Rd, near Motahaldu, Haldwani, Uttarakhand 263139
+          </p>
+          <p style="color: var(--text-high); font-weight: 700; margin-top: 0.75rem;">
+            <a href="tel:07906120653" style="color: var(--color-primary);">079061 20653</a>
+          </p>
+        </div>
       </div>
 
-    </div>
-  </section>
-
-  <!-- ================= FOOTER ================= -->
-  <footer class="bg-brand-darker py-10 px-6 sm:px-10 lg:px-14 text-xs text-slate-500">
-    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
-      <div class="flex items-center gap-2 text-slate-300">
-        <span class="font-bold text-white uppercase">Muscle Monster Gym</span>
-        <span>•</span>
-        <span>Haldwani, Uttarakhand</span>
+      <div class="footer-bottom">
+        <p>© 2026 Muscle Monster Gym. All rights reserved.</p>
+        <p class="label-caps" style="color: var(--text-low);">Engineered with Obsidian Kinetic Design System</p>
       </div>
-      <p>© 2026 Muscle Monster Gym. All rights reserved.</p>
+
     </div>
   </footer>
 
-  <!-- ================= FLOATING ACTION BUTTONS (BOTTOM RIGHT - GLOW & LIFT) ================= -->
-  <div class="fixed bottom-6 right-6 z-50 flex flex-col gap-3">
-    <!-- Call / Phone Float Button -->
-    <a href="tel:07906120653" aria-label="Call Gym" class="btn-lift-dark float-glow w-13 h-13 p-3.5 rounded-full bg-black/90 border border-white/25 text-white flex items-center justify-center shadow-2xl backdrop-blur-md">
-      <i class="fa-solid fa-phone text-sm text-brand-orange"></i>
+  <!-- ================= FLOATING ACTION BUTTONS ================= -->
+  <div class="floating-actions">
+    <a href="tel:07906120653" class="float-btn float-call" aria-label="Call Gym Directly">
+      <i class="fa-solid fa-phone"></i>
     </a>
-    
-    <!-- WhatsApp Float Button -->
-    <a href="https://wa.me/917906120653?text=Hi%20Muscle%20Monster%20Gym!%20I%20would%20like%20to%20book%20my%201st%20workout%20class%20free." target="_blank" rel="noopener noreferrer" aria-label="WhatsApp Us" class="btn-lift-orange w-13 h-13 p-3.5 rounded-full bg-emerald-600 text-white flex items-center justify-center shadow-2xl">
-      <i class="fa-brands fa-whatsapp text-xl"></i>
+    <a href="https://wa.me/917906120653?text=Hi%20Muscle%20Monster%20Gym!%20I%20am%20interested%20in%20visiting%20the%20facility%20today." target="_blank" class="float-btn float-whatsapp" aria-label="WhatsApp Inquiry">
+      <i class="fa-brands fa-whatsapp"></i>
     </a>
   </div>
 
-  <!-- ================= LIGHTBOX MODAL FOR FULLSCREEN GALLERY ZOOM ================= -->
-  <div id="lightbox-modal" class="fixed inset-0 z-50 bg-black/90 backdrop-blur-md hidden items-center justify-center p-4 transition-all opacity-0">
-    <div class="relative max-w-4xl w-full max-h-[90vh] flex flex-col items-center">
-      <button id="lightbox-close" class="absolute -top-12 right-0 text-white hover:text-brand-orange text-2xl transition-colors">
+  <!-- ================= GALLERY LIGHTBOX MODAL ================= -->
+  <div class="lightbox-modal" id="lightbox-modal">
+    <div class="lightbox-content">
+      <button class="lightbox-close-btn" id="lightbox-close" aria-label="Close Lightbox">
         <i class="fa-solid fa-xmark"></i>
       </button>
-      <img id="lightbox-img" src="" alt="Full view" class="w-full max-h-[80vh] object-contain rounded-xl border border-white/10 shadow-2xl">
-      <p id="lightbox-caption" class="text-white text-sm font-semibold mt-3 tracking-wide"></p>
+      <img src="" alt="Fullscreen Gym Floor View" class="lightbox-img" id="lightbox-img">
+      <p class="lightbox-caption" id="lightbox-caption"></p>
     </div>
   </div>
-
-  <!-- ================= JAVASCRIPT ================= -->
-  <script>
-    // 1. Interactive Ambient Mouse Spotlight in Hero
-    const heroContainer = document.getElementById('hero-container');
-    const spotlight = document.getElementById('cursor-spotlight');
-
-    if (heroContainer && spotlight) {
-      heroContainer.addEventListener('mousemove', (e) => {
-        const rect = heroContainer.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-        spotlight.style.setProperty('--mouse-x', `${x}px`);
-        spotlight.style.setProperty('--mouse-y', `${y}px`);
-      });
-    }
-
-    // 2. Mobile Menu Toggle
-    const menuBtn = document.getElementById('mobile-menu-btn');
-    const mobileMenu = document.getElementById('mobile-menu');
-    const menuIcon = document.getElementById('menu-icon');
-    const mobileLinks = document.querySelectorAll('.mobile-link');
-
-    menuBtn.addEventListener('click', () => {
-      mobileMenu.classList.toggle('hidden');
-      if (mobileMenu.classList.contains('hidden')) {
-        menuIcon.classList.remove('fa-xmark');
-        menuIcon.classList.add('fa-bars');
-      } else {
-        menuIcon.classList.remove('fa-bars');
-        menuIcon.classList.add('fa-xmark');
-      }
-    });
-
-    mobileLinks.forEach(link => {
-      link.addEventListener('click', () => {
-        mobileMenu.classList.add('hidden');
-        menuIcon.classList.remove('fa-xmark');
-        menuIcon.classList.add('fa-bars');
-      });
-    });
-
-    // 3. Gallery Carousel Slider (< and > buttons) + Smooth Auto-Advance
-    const galleryCarousel = document.getElementById('gallery-carousel');
-    const prevBtn = document.getElementById('gallery-prev-btn');
-    const nextBtn = document.getElementById('gallery-next-btn');
-
-    if (prevBtn && nextBtn && galleryCarousel) {
-      prevBtn.addEventListener('click', () => {
-        galleryCarousel.scrollBy({ left: -320, behavior: 'smooth' });
-      });
-      nextBtn.addEventListener('click', () => {
-        galleryCarousel.scrollBy({ left: 320, behavior: 'smooth' });
-      });
-
-      // Subtle auto advance every 5s unless hovered
-      let autoAdvance = setInterval(() => {
-        if (galleryCarousel.scrollLeft + galleryCarousel.clientWidth >= galleryCarousel.scrollWidth - 10) {
-          galleryCarousel.scrollTo({ left: 0, behavior: 'smooth' });
-        } else {
-          galleryCarousel.scrollBy({ left: 320, behavior: 'smooth' });
-        }
-      }, 4500);
-
-      galleryCarousel.addEventListener('mouseenter', () => clearInterval(autoAdvance));
-      galleryCarousel.addEventListener('mouseleave', () => {
-        autoAdvance = setInterval(() => {
-          if (galleryCarousel.scrollLeft + galleryCarousel.clientWidth >= galleryCarousel.scrollWidth - 10) {
-            galleryCarousel.scrollTo({ left: 0, behavior: 'smooth' });
-          } else {
-            galleryCarousel.scrollBy({ left: 320, behavior: 'smooth' });
-          }
-        }, 4500);
-      });
-    }
-
-    // 4. Interactive Lightbox Modal for Gallery Images
-    const galleryItems = document.querySelectorAll('.gallery-item');
-    const lightboxModal = document.getElementById('lightbox-modal');
-    const lightboxImg = document.getElementById('lightbox-img');
-    const lightboxCaption = document.getElementById('lightbox-caption');
-    const lightboxClose = document.getElementById('lightbox-close');
-
-    galleryItems.forEach(item => {
-      item.addEventListener('click', () => {
-        const fullSrc = item.getAttribute('data-src');
-        const title = item.getAttribute('data-title');
-        lightboxImg.src = fullSrc;
-        lightboxCaption.textContent = title;
-        lightboxModal.classList.remove('hidden');
-        lightboxModal.classList.add('flex');
-        setTimeout(() => {
-          lightboxModal.classList.remove('opacity-0');
-        }, 10);
-      });
-    });
-
-    const closeLightbox = () => {
-      lightboxModal.classList.add('opacity-0');
-      setTimeout(() => {
-        lightboxModal.classList.remove('flex');
-        lightboxModal.classList.add('hidden');
-        lightboxImg.src = '';
-      }, 300);
-    };
-
-    if (lightboxClose) lightboxClose.addEventListener('click', closeLightbox);
-    if (lightboxModal) {
-      lightboxModal.addEventListener('click', (e) => {
-        if (e.target === lightboxModal) closeLightbox();
-      });
-    }
-
-    // 5. Animated Number Counter on Scroll
-    const counters = document.querySelectorAll('.counter-value');
-    let hasCounted = false;
-
-    const animateCounters = () => {
-      counters.forEach(counter => {
-        const target = +counter.getAttribute('data-target');
-        let count = 0;
-        const speed = target / 40;
-        const updateCount = () => {
-          count += speed;
-          if (count < target) {
-            counter.innerText = Math.ceil(count) + (target === 500 ? '+' : '%');
-            setTimeout(updateCount, 25);
-          } else {
-            counter.innerText = target + (target === 500 ? '+' : '%');
-          }
-        };
-        updateCount();
-      });
-    };
-
-    window.addEventListener('scroll', () => {
-      const aboutSection = document.getElementById('about');
-      if (aboutSection && !hasCounted) {
-        const rect = aboutSection.getBoundingClientRect();
-        if (rect.top <= window.innerHeight * 0.75) {
-          animateCounters();
-          hasCounted = true;
-        }
-      }
-    });
-
-    // 6. Lead Form Submission -> WhatsApp Direct
-    function handleFormSubmit(e) {
-      e.preventDefault();
-      const name = document.getElementById('name').value.trim();
-      const phone = document.getElementById('phone').value.trim();
-      const goal = document.getElementById('goal').value;
-
-      if (!name || !phone) {
-        alert('Please fill your name and phone number.');
-        return;
-      }
-
-      const msg = `Hello Muscle Monster Gym! 👋%0A%0AMy Name: *${encodeURIComponent(name)}*%0APhone: *${encodeURIComponent(phone)}*%0AGoal: *${encodeURIComponent(goal)}*%0A%0AI would like to book my 1st class free pass!`;
-      window.open(`https://wa.me/917906120653?text=${msg}`, '_blank');
-    }
-  </script>
 
 </body>
 </html>
