@@ -1,25 +1,57 @@
 /**
  * MUSCLE MONSTER GYM — SCRIPT.JS
- * Implements dramatic scroll-triggered counter animations, interactive lightbox,
- * mobile navigation, and WhatsApp booking integration.
+ * Implements:
+ * 1. Page-load and scroll-triggered graceful slide-in animations (left, right, bottom).
+ * 2. Dramatic scroll-triggered number counter animations.
+ * 3. Mobile navigation menu toggle.
+ * 4. Interactive gallery lightbox.
+ * 5. Direct WhatsApp pass claim integration.
  */
 
 document.addEventListener('DOMContentLoaded', () => {
 
   /* --------------------------------------------------------------------------
-     1. DRAMATIC SCROLL-TRIGGERED COUNTER ANIMATION
+     1. SCROLL-TRIGGERED & PAGE-LOAD SLIDE-IN ANIMATIONS
+     -------------------------------------------------------------------------- */
+  const animElements = document.querySelectorAll('.anim-fade-up, .anim-slide-left, .anim-slide-right, .anim-fade');
+
+  if (animElements.length > 0) {
+    const observerOptions = {
+      threshold: 0.12,
+      rootMargin: '0px 0px -40px 0px'
+    };
+
+    const animObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animated-in');
+          observer.unobserve(entry.target); // Animate once
+        }
+      });
+    }, observerOptions);
+
+    animElements.forEach(el => animObserver.observe(el));
+
+    // Page-Load Hero Trigger: Trigger initial above-the-fold elements smoothly
+    setTimeout(() => {
+      const heroElements = document.querySelectorAll('.hero-section .anim-fade-up, .hero-section .anim-slide-left, .hero-section .anim-slide-right');
+      heroElements.forEach(el => el.classList.add('animated-in'));
+    }, 60);
+  }
+
+  /* --------------------------------------------------------------------------
+     2. DRAMATIC SCROLL-TRIGGERED COUNTER ANIMATION
      -------------------------------------------------------------------------- */
   const counters = document.querySelectorAll('.counter-animate');
   
   if (counters.length > 0) {
-    // Ease-out cubic function for a dramatic deceleration curve
     const easeOutCubic = (t) => 1 - Math.pow(1 - t, 3);
 
     const animateCounter = (counterElement) => {
       const target = parseFloat(counterElement.getAttribute('data-target')) || 0;
       const suffix = counterElement.getAttribute('data-suffix') || '';
       const prefix = counterElement.getAttribute('data-prefix') || '';
-      const duration = parseInt(counterElement.getAttribute('data-duration'), 10) || 2200; // ms
+      const duration = parseInt(counterElement.getAttribute('data-duration'), 10) || 2000;
       let startTime = null;
 
       const step = (timestamp) => {
@@ -33,7 +65,6 @@ document.addEventListener('DOMContentLoaded', () => {
         if (progress < 1) {
           window.requestAnimationFrame(step);
         } else {
-          // Final exact number with suffix
           counterElement.textContent = `${prefix}${target}${suffix}`;
         }
       };
@@ -41,38 +72,22 @@ document.addEventListener('DOMContentLoaded', () => {
       window.requestAnimationFrame(step);
     };
 
-    // IntersectionObserver to trigger animation when scrolled into view
     const counterObserver = new IntersectionObserver((entries, observer) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          const el = entry.target;
-          animateCounter(el);
-          observer.unobserve(el); // Only animate once
+          animateCounter(entry.target);
+          observer.unobserve(entry.target);
         }
       });
     }, {
-      threshold: 0.35, // Trigger when 35% visible
-      rootMargin: '0px 0px -50px 0px'
+      threshold: 0.3,
+      rootMargin: '0px 0px -30px 0px'
     });
 
     counters.forEach(counter => {
-      counter.textContent = '0'; // Initialize at 0
+      counter.textContent = '0';
       counterObserver.observe(counter);
     });
-  }
-
-  /* --------------------------------------------------------------------------
-     2. STICKY HEADER SCROLL EFFECT
-     -------------------------------------------------------------------------- */
-  const header = document.querySelector('.site-header');
-  if (header) {
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 40) {
-        header.classList.add('scrolled');
-      } else {
-        header.classList.remove('scrolled');
-      }
-    }, { passive: true });
   }
 
   /* --------------------------------------------------------------------------
@@ -96,7 +111,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
 
-    // Close menu when clicking nav links
+    // Close mobile menu when clicking any nav link
     const navLinks = navMenu.querySelectorAll('.nav-link');
     navLinks.forEach(link => {
       link.addEventListener('click', () => {
@@ -129,7 +144,7 @@ document.addEventListener('DOMContentLoaded', () => {
           lightboxImg.src = fullSrc;
           if (lightboxCaption) lightboxCaption.textContent = title;
           lightboxModal.classList.add('active');
-          document.body.style.overflow = 'hidden'; // lock background scrolling
+          document.body.style.overflow = 'hidden';
         }
       });
     });
@@ -143,12 +158,9 @@ document.addEventListener('DOMContentLoaded', () => {
     if (lightboxClose) lightboxClose.addEventListener('click', closeLightbox);
     
     lightboxModal.addEventListener('click', (e) => {
-      if (e.target === lightboxModal) {
-        closeLightbox();
-      }
+      if (e.target === lightboxModal) closeLightbox();
     });
 
-    // Escape key listener
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && lightboxModal.classList.contains('active')) {
         closeLightbox();
@@ -157,20 +169,20 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* --------------------------------------------------------------------------
-     5. WHATSAPP BOOKING FORM INTEGRATION
+     5. CONTACT FORM (BOTTOM OF PAGE) WHATSAPP INTEGRATION
      -------------------------------------------------------------------------- */
   const bookingForm = document.getElementById('booking-form');
   if (bookingForm) {
     bookingForm.addEventListener('submit', (e) => {
       e.preventDefault();
-      
+
       const nameInput = document.getElementById('user-name');
       const phoneInput = document.getElementById('user-phone');
       const goalSelect = document.getElementById('user-goal');
 
       const name = nameInput ? nameInput.value.trim() : '';
       const phone = phoneInput ? phoneInput.value.trim() : '';
-      const goal = goalSelect ? goalSelect.value : 'General Fitness';
+      const goal = goalSelect ? goalSelect.value : 'Bodybuilding & Fitness';
 
       if (!name || !phone) {
         alert('Please fill in both your full name and contact number.');
@@ -179,11 +191,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const encodedMessage = 
         `Hello Muscle Monster Gym! 👋%0A%0A` +
-        `I would like to book my 1st Free Class / Training Assessment.%0A%0A` +
+        `I would like to claim my 1-Day Free Workout Pass.%0A%0A` +
         `• Name: *${encodeURIComponent(name)}*%0A` +
         `• Mobile: *${encodeURIComponent(phone)}*%0A` +
-        `• Target Goal: *${encodeURIComponent(goal)}*%0A%0A` +
-        `Please confirm available slots at the Haldwani facility.`;
+        `• Fitness Goal: *${encodeURIComponent(goal)}*%0A%0A` +
+        `Please confirm my trial booking at the Haldwani gym.`;
 
       const whatsappUrl = `https://wa.me/917906120653?text=${encodedMessage}`;
       window.open(whatsappUrl, '_blank');

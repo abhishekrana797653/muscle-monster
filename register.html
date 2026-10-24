@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Athlete Registration | Muscle Monster Gym</title>
+  <meta name="description" content="Register your athlete profile at Muscle Monster Gym Haldwani.">
+
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Auth Styling -->
+  <link rel="stylesheet" href="static/css/auth.css">
+  <script src="static/js/auth.js" defer></script>
+</head>
+
+<body>
+
+  <!-- Top Navigation Header -->
+  <header class="auth-navbar">
+    <a href="index.html" class="brand-badge">
+      <div class="icon-box">
+        <i class="fa-solid fa-dumbbell -rotate-45"></i>
+      </div>
+      <span>Muscle <span>Monster</span></span>
+    </a>
+    <a href="index.html" style="font-size: 0.85rem; font-weight: 700; color: var(--gold); text-decoration: none;">
+      <i class="fa-solid fa-arrow-left"></i> Back to Gym
+    </a>
+  </header>
+
+  <!-- Registration Card Container -->
+  <main class="auth-container">
+    <div class="auth-card">
+      
+      <div class="auth-header">
+        <h1>Join The Syndicate</h1>
+        <p>Register as an athlete and begin your transformation.</p>
+      </div>
+
+      <!-- Feedback Alert Box -->
+      <div id="auth-alert" class="alert-box"></div>
+
+      <!-- Registration Form -->
+      <form id="register-form">
+        <div class="form-group">
+          <label class="form-label" for="reg-name">Full Name</label>
+          <div class="input-wrapper">
+            <i class="fa-regular fa-user input-icon"></i>
+            <input type="text" id="reg-name" class="form-input" placeholder="e.g. Vikram Sharma" required autocomplete="name">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="reg-email">Email Address</label>
+          <div class="input-wrapper">
+            <i class="fa-regular fa-envelope input-icon"></i>
+            <input type="email" id="reg-email" class="form-input" placeholder="e.g. vikram@musclemonster.com" required autocomplete="email">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="reg-password">Password (Min 6 Characters)</label>
+          <div class="input-wrapper">
+            <i class="fa-solid fa-lock input-icon"></i>
+            <input type="password" id="reg-password" class="form-input" placeholder="••••••••" required autocomplete="new-password">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="reg-confirm">Confirm Password</label>
+          <div class="input-wrapper">
+            <i class="fa-solid fa-shield-halved input-icon"></i>
+            <input type="password" id="reg-confirm" class="form-input" placeholder="••••••••" required autocomplete="new-password">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="reg-tier">Selected Membership Tier</label>
+          <div class="input-wrapper">
+            <i class="fa-solid fa-award input-icon"></i>
+            <select id="reg-tier" class="form-input" style="padding-left: 2.75rem;">
+              <option value="Standard Athlete">1-Month Foundation Athlete</option>
+              <option value="Transformation Beast">3-Month Beast Transformation</option>
+              <option value="VIP Black Card Athlete">12-Month VIP Black Card</option>
+            </select>
+          </div>
+        </div>
+
+        <button type="submit" id="reg-submit-btn" class="btn-auth">
+          <span>Create Athlete Account</span>
+          <i class="fa-solid fa-arrow-right"></i>
+        </button>
+      </form>
+
+      <div class="auth-footer">
+        <p>Already an enrolled athlete? <a href="login.html">Log in here</a></p>
+      </div>
+
+    </div>
+  </main>
+
+</body>
+</html>

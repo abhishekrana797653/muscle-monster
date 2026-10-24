@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Athlete Login | Muscle Monster Gym</title>
+  <meta name="description" content="Access your Muscle Monster Gym athlete profile, training schedule, and membership portal.">
+
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Auth Styling (Relative & Absolute Fallback) -->
+  <link rel="stylesheet" href="static/css/auth.css">
+  <script src="static/js/auth.js" defer></script>
+</head>
+
+<body>
+
+  <!-- Top Navigation Header -->
+  <header class="auth-navbar">
+    <a href="index.html" class="brand-badge">
+      <div class="icon-box">
+        <i class="fa-solid fa-dumbbell -rotate-45"></i>
+      </div>
+      <span>Muscle <span>Monster</span></span>
+    </a>
+    <a href="index.html" style="font-size: 0.85rem; font-weight: 700; color: var(--gold); text-decoration: none;">
+      <i class="fa-solid fa-arrow-left"></i> Back to Gym
+    </a>
+  </header>
+
+  <!-- Login Card Container -->
+  <main class="auth-container">
+    <div class="auth-card">
+      
+      <div class="auth-header">
+        <h1>Athlete Portal</h1>
+        <p>Log in to access your workout regimen & pass details.</p>
+      </div>
+
+      <!-- Feedback Alert Box -->
+      <div id="auth-alert" class="alert-box"></div>
+
+      <!-- Login Form -->
+      <form id="login-form">
+        <div class="form-group">
+          <label class="form-label" for="login-email">Email Address</label>
+          <div class="input-wrapper">
+            <i class="fa-regular fa-envelope input-icon"></i>
+            <input type="email" id="login-email" class="form-input" placeholder="e.g. athlete@musclemonster.com" required autocomplete="email">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="login-password">Password</label>
+          <div class="input-wrapper">
+            <i class="fa-solid fa-lock input-icon"></i>
+            <input type="password" id="login-password" class="form-input" placeholder="••••••••" required autocomplete="current-password">
+          </div>
+        </div>
+
+        <button type="submit" id="login-submit-btn" class="btn-auth">
+          <span>Log In To Portal</span>
+          <i class="fa-solid fa-arrow-right"></i>
+        </button>
+      </form>
+
+      <div class="auth-footer">
+        <p>New athlete in Haldwani? <a href="register.html">Create an account here</a></p>
+      </div>
+
+    </div>
+  </main>
+
+</body>
+</html>

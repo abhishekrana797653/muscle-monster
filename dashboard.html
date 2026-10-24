@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Athlete Dashboard | Muscle Monster Gym</title>
+  <meta name="description" content="Protected member dashboard for Muscle Monster Gym athletes.">
+
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Auth Styling -->
+  <link rel="stylesheet" href="static/css/auth.css">
+  <script src="static/js/auth.js" defer></script>
+</head>
+
+<body>
+
+  <!-- Top Navigation Header -->
+  <header class="auth-navbar">
+    <a href="index.html" class="brand-badge">
+      <div class="icon-box">
+        <i class="fa-solid fa-dumbbell -rotate-45"></i>
+      </div>
+      <span>Muscle <span>Monster</span></span>
+    </a>
+    <div style="display: flex; align-items: center; gap: 1.5rem;">
+      <a href="index.html" style="font-size: 0.85rem; font-weight: 700; color: var(--gold); text-decoration: none;">
+        <i class="fa-solid fa-house"></i> Gym Website
+      </a>
+      <button id="logout-btn" class="btn-logout">
+        <i class="fa-solid fa-arrow-right-from-bracket"></i>
+        <span>Log Out</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Protected Dashboard Container -->
+  <main class="dashboard-wrapper" id="dashboard-root">
+    
+    <!-- Top Welcome Banner -->
+    <div class="dash-topbar">
+      <div class="dash-user-meta">
+        <h2>Welcome, <span id="dash-user-name" style="color: var(--gold);">Athlete</span></h2>
+        <p id="dash-user-email">athlete@musclemonster.com</p>
+        <div class="tier-badge">
+          <i class="fa-solid fa-award"></i>
+          <span id="dash-user-tier">Standard Athlete</span>
+        </div>
+      </div>
+
+      <div style="text-align: right;">
+        <span style="font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); display: block;">
+          FACILITY STATUS
+        </span>
+        <span style="display: inline-flex; align-items: center; gap: 0.4rem; color: #10B981; font-weight: 800; font-size: 0.95rem; margin-top: 0.2rem;">
+          <i class="fa-solid fa-circle" style="font-size: 8px;"></i> Open Shift Active
+        </span>
+      </div>
+    </div>
+
+    <!-- Telemetry Metric Cards -->
+    <div class="dash-grid">
+      
+      <div class="dash-stat-card">
+        <div>
+          <div class="stat-icon">
+            <i class="fa-solid fa-key"></i>
+          </div>
+          <span class="stat-label">Assigned Locker</span>
+          <p class="stat-value" id="dash-locker">L-101</p>
+        </div>
+        <p style="font-size: 0.75rem; color: var(--text-muted); margin-top: 1rem;">Main floor locker room</p>
+      </div>
+
+      <div class="dash-stat-card">
+        <div>
+          <div class="stat-icon">
+            <i class="fa-solid fa-user-ninja"></i>
+          </div>
+          <span class="stat-label">Head Coach</span>
+          <p class="stat-value" id="dash-trainer" style="font-size: 1.15rem;">Coach Vikram Rawat</p>
+        </div>
+        <p style="font-size: 0.75rem; color: var(--text-muted); margin-top: 1rem;">1-on-1 Biometrics & Form Check</p>
+      </div>
+
+      <div class="dash-stat-card">
+        <div>
+          <div class="stat-icon">
+            <i class="fa-solid fa-clock"></i>
+          </div>
+          <span class="stat-label">Active Batch</span>
+          <p class="stat-value" id="dash-batch" style="font-size: 1.05rem;">Evening Shift</p>
+        </div>
+        <p style="font-size: 0.75rem; color: var(--text-muted); margin-top: 1rem;">4:00 PM - 10:00 PM</p>
+      </div>
+
+    </div>
+
+    <!-- Active Regimen Schedule Panel -->
+    <div class="dash-info-panel">
+      <h3>Active Training Telemetry</h3>
+
+      <div class="schedule-row">
+        <div>
+          <strong style="color: var(--text-white); font-size: 1rem; display: block;">Next Scheduled Session</strong>
+          <span style="font-size: 0.85rem; color: var(--text-muted);" id="dash-workout">Chest, Deltoids & Triceps Hypertrophy</span>
+        </div>
+        <span style="padding: 0.35rem 0.85rem; background: rgba(212, 175, 55, 0.15); border: 1px solid var(--gold); color: var(--gold); font-size: 0.78rem; font-weight: 800; border-radius: 4px; text-transform: uppercase;">
+          Today's Workout
+        </span>
+      </div>
+
+      <div class="schedule-row">
+        <div>
+          <strong style="color: var(--text-white); font-size: 1rem; display: block;">Facility Location</strong>
+          <span style="font-size: 0.85rem; color: var(--text-muted);">Chauraha, Bareilly - Nainital Rd, near Motahaldu, Haldwani</span>
+        </div>
+        <a href="https://maps.google.com/?q=Chauraha,+Bareilly+-+Nainital+Rd,+near+Motahaldu,+Haldwani,+Jaipur+Bisa,+Uttarakhand+263139" target="_blank" style="color: var(--gold); font-weight: 700; font-size: 0.85rem; text-decoration: none;">
+          View Map ↗
+        </a>
+      </div>
+
+      <div class="schedule-row">
+        <div>
+          <strong style="color: var(--text-white); font-size: 1rem; display: block;">Emergency Support & Front Desk</strong>
+          <span style="font-size: 0.85rem; color: var(--text-muted);">Direct phone line: 079061 20653</span>
+        </div>
+        <a href="tel:07906120653" style="color: var(--gold); font-weight: 700; font-size: 0.85rem; text-decoration: none;">
+          Call Desk ↗
+        </a>
+      </div>
+    </div>
+
+  </main>
+
+</body>
+</html>
